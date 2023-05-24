@@ -11,9 +11,9 @@ PGPTConversation.onMessage((msg) => {
         }
         fetch("https://server.powerupstudio.eu/pgpt/ep?name=PhotoGPT&id=GetPhoto&type=" + el.getAttribute("type") + "&query=" + q).then(res => res.json()).then((res) => {
           if (el.getAttribute("type") == "random") {
-            el.innerHTML = "<img src='" + res.urls.raw + "'></img>"
+            el.innerHTML = "<img src='" + res.urls.raw + "' style='max-width:500px;max-height:500px;'></img><br/><i><span>Photo by <a href='https://unsplash.com/@" + res.user.username + "?utm_source=PhotoGPT&utm_medium=referral'>" + res.user.name + "</a> on <a href='https://unsplash.com?utm_source=PhotoGPT&utm_medium=referral'>Unsplash</a></span></i>"
           }else{
-            el.innerHTML = "<img src='" + res[0].urls.raw + "'></img>"
+            el.innerHTML = "<img src='" + res.results[0].urls.raw + "' style='max-width:500px;max-height:500px;'></img><br/><i><span>Photo by <a href='https://unsplash.com/@" + res.results[0].user.username + "?utm_source=PhotoGPT&utm_medium=referral'>" + res.results[0].user.name + "</a> on <a href='https://unsplash.com?utm_source=PhotoGPT&utm_medium=referral'>Unsplash</a></span></i>"
           }
           if (i + 1 == arr.length) {
             msg.modifyContent(hw.innerHTML)
