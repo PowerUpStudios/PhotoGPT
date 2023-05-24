@@ -1,3 +1,3 @@
-PGPT.Conversation.onMessage((msg) => {
+PGPTConversation.onMessage((msg) => {
   console.log(msg.content)
 })
