@@ -5,14 +5,17 @@ PGPTConversation.onMessage((msg) => {
       let arr = hw.getElementsByTagName("photogpt")
       for (let i = 0; i < arr.length; i++) {
         let el = arr[i]
-        console.log("https://server.powerupstudio.eu/pgpt/ep?name=PhotoGPT&id=GetPhoto&type=" + el.getAttribute("type") + "&query=" + el.getAttribute("query"))
-        fetch("https://server.powerupstudio.eu/pgpt/ep?name=PhotoGPT&id=GetPhoto&type=" + el.getAttribute("type") + "&query=" + el.getAttribute("query")).then(res => res.json()).then((res) => {
+        let q = el.getAttribute("query")
+        if (!q) {
+          q = ""
+        }
+        fetch("https://server.powerupstudio.eu/pgpt/ep?name=PhotoGPT&id=GetPhoto&type=" + el.getAttribute("type") + "&query=" + q).then(res => res.json()).then((res) => {
           if (el.getAttribute("type") == "random") {
             el.innerHTML = "<img src='" + res.urls.raw + "'></img>"
           }else{
             el.innerHTML = "<img src='" + res[0].urls.raw + "'></img>"
           }
-          if (i == arr.length) {
+          if (i - 1 == arr.length) {
             msg.modifyContent(hw.innerHTML)
           }
         })
