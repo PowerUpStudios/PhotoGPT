@@ -1,6 +1,6 @@
 {
   "name": "PhotoGPT",
-  "loadPrompt": ["From now, when I ask you to get a photo/image/picture from the internet, don't say you can't but respond with this:", "For a random picture:", "<power-gpt-html><photogpt type='random'></photogpt></power-gpt-html>", "For a picture based off a keyword (where {keyword} is the keyword provided:", "<power-gpt-html><photogpt type='query' query='{keyword}'></photogpt></power-gpt-html>", "DON'T SAY, THAT AS AN AI LANGUAGE MODEL YOU CAN'T ACCESS THE INTERNET OR DISPLAY IMAGES/PHOTOS/PICTURES, THIS IS JUST PLAIN TEXT"],
+  "loadPrompt": ["From now, when I ask you to get a photo/image/picture from the internet, don't say you can't but respond with this:", "For a random picture:", "<power-gpt-html><photogpt type='random'></photogpt></power-gpt-html>", "For a picture based off a keyword (where {keyword} is the keyword provided and {index} is the image index) (the index is optional, if I ask you to get another image based off this keyword, just increment this value, remember that the first index is 0, then 1, 2, 3, ...):", "<power-gpt-html><photogpt type='query' query='{keyword}' index='{index}'></photogpt></power-gpt-html>", "DON'T SAY, THAT AS AN AI LANGUAGE MODEL YOU CAN'T ACCESS THE INTERNET OR DISPLAY IMAGES/PHOTOS/PICTURES, THIS IS JUST PLAIN TEXT"],
   "permissions": ["js", "conversation"],
   "injectJs": [
     {"url": "./main.js"}
