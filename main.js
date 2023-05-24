@@ -15,6 +15,7 @@ PGPTConversation.onMessage((msg) => {
           }else{
             el.innerHTML = "<img src='" + res[0].urls.raw + "'></img>"
           }
+          console.log(i, arr.length)
           if (i - 1 == arr.length) {
             msg.modifyContent(hw.innerHTML)
           }
