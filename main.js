@@ -1,4 +1,3 @@
-console.log(window.parent.document)
 PGPTConversation.onMessage((msg) => {
-  console.log(msg.content)
+  console.log(msg)
 }, window.parent.document)
